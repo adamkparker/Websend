@@ -1,0 +1,14 @@
+name: Websend
+main: websend.Main
+version: 1.0
+description: Plug-in to enable variables-transfer to the interwebs and backwards.
+author: adamkparker and adamjon858
+commands:
+   websend:
+      description: Sends variables to server.
+      usage: |
+              /<command> <arguments>
+   ws:
+      description: Sends variables to server.
+      usage: |
+              /<command> <arguments>
