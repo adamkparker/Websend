@@ -307,8 +307,3 @@ public class Interpretator
     return result;
   }
 }
-
-/* Location:           /Users/adamkparker/Desktop/Websend.jar
- * Qualified Name:     websend.Interpretator
- * JD-Core Version:    0.6.0
- */

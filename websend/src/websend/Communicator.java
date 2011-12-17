@@ -176,8 +176,3 @@ public class Communicator
     return result;
   }
 }
-
-/* Location:           /Users/adamkparker/Desktop/Websend.jar
- * Qualified Name:     websend.Communicator
- * JD-Core Version:    0.6.0
- */

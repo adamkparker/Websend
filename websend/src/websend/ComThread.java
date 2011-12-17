@@ -51,8 +51,3 @@ class ComThread extends Thread
     }
   }
 }
-
-/* Location:           /Users/adamkparker/Desktop/Websend.jar
- * Qualified Name:     websend.ComThread
- * JD-Core Version:    0.6.0
- */

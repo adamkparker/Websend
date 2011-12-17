@@ -24,7 +24,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Main extends JavaPlugin
 {
   public static PermissionHandler permissionHandler;
-  String DO_NOT_STEAL_MY_CODE__Thank_you;
   static String absolPath;
   static String seperator;
   static String port = "4445";
@@ -253,8 +252,3 @@ public class Main extends JavaPlugin
     System.out.println("Found and will use plugin " + ((Permissions)permissionsPlugin).getDescription().getFullName());
   }
 }
-
-/* Location:           /Users/adamkparker/Desktop/Websend.jar
- * Qualified Name:     websend.Main
- * JD-Core Version:    0.6.0
- */

@@ -118,8 +118,3 @@ class PHPSktSrvrThread extends Thread
     }
   }
 }
-
-/* Location:           /Users/adamkparker/Desktop/Websend.jar
- * Qualified Name:     websend.PHPSktSrvrThread
- * JD-Core Version:    0.6.0
- */
