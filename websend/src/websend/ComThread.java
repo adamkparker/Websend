@@ -1,6 +1,5 @@
 package websend;
 
-import java.io.PrintStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.bukkit.Server;
@@ -10,7 +9,7 @@ class ComThread extends Thread
 {
   String url;
   String pass;
-  String[] args;
+  String args;
   Player plsender = null;
 
   boolean altprotection = false;
@@ -18,21 +17,22 @@ class ComThread extends Thread
   Server server;
   String urlfile = "";
 
-  public ComThread(String urlArg, String passArg, String[] argsArg, Player plsenderArg, boolean altprotect, boolean forcePort4444, Server serverNew, String file) { this.url = urlArg;
+  public ComThread(String urlArg, String passArg, String msg, Player plsenderArg, boolean altprotect, boolean forcePort4444, Server serverNew, String file) { this.url = urlArg;
     this.pass = passArg;
-    this.args = argsArg;
+    this.args = msg;
     if (plsenderArg != null) {
       this.plsender = plsenderArg;
     }
     this.altprotection = altprotect;
     this.server = serverNew;
     this.forceport = forcePort4444;
-    this.urlfile = file; }
+    this.urlfile = file; 
+    }
 
-  public void setVariables(String urlArg, String passArg, String[] argsArg, Player plsenderArg, boolean altprotect, boolean forcePort4444, Server serverNew, String file) {
+  public void setVariables(String urlArg, String passArg, String msg, Player plsenderArg, boolean altprotect, boolean forcePort4444, Server serverNew, String file) {
     this.url = urlArg;
     this.pass = passArg;
-    this.args = argsArg;
+    this.args = msg;
     this.plsender = plsenderArg;
     this.altprotection = altprotect;
     this.server = serverNew;

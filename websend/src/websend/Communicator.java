@@ -15,10 +15,6 @@ import java.util.Calendar;
 import java.util.HashMap;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.PluginDescriptionFile;
-import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.java.JavaPlugin;
 
 public class Communicator
 {
@@ -26,14 +22,13 @@ public class Communicator
   URL url;
   boolean closed = false;
 
-  public void sendPOST(String urlArg, String passArg, String[] args, Player player, boolean altprotect, boolean forcePort, Server server, String file) throws Exception {
+  public void sendPOST(String urlArg, String passArg, String msg, Player player, boolean altprotect, boolean forcePort, Server server, String file) throws Exception {
     if (altprotect) {
       this.PAC = URLEncoder.encode(generatePAC(passArg), "UTF-8");
     }
-    String[] argsEncoded = new String[args.length];
-    for (int i = 0; i < args.length; i++) {
-      argsEncoded[i] = URLEncoder.encode(args[i], "UTF-8");
-    }
+    
+    msg = URLEncoder.encode(msg, "UTF-8");
+    
     if (forcePort) {
       if (file != null) {
         this.url = new URL("http", urlArg, 4444, file);
@@ -51,9 +46,8 @@ public class Communicator
       out.write("pac=" + this.PAC + "&");
     }
     sendData(server, out, player);
-    for (int i = 0; i < argsEncoded.length; i++) {
-      out.write("args[" + i + "]=" + argsEncoded[i] + "&");
-    }
+    out.write("args=" + msg + "&");
+    
     if (!altprotect) {
       out.write("authKey=" + URLEncoder.encode(hash(passArg), "UTF-8"));
     }
@@ -66,17 +60,13 @@ public class Communicator
       String line;
       while ((line = in.readLine()) != null)
       {
-        //String line;
-        String line1 = null;
-        interpretator.Interpretate(line1, player, server);
+        interpretator.Interpretate(line, player, server);
       }
     }
     String line;
     while ((line = in.readLine()) != null)
     {
-      //String line;
-      String line1 = null;
-      interpretator.NoPlayerInterpretate(line1, server);
+      interpretator.NoPlayerInterpretate(line, server);
     }
 
     in.close();
