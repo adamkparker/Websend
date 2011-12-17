@@ -22,7 +22,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin
-{ 
+{
   public static PermissionHandler permissionHandler;
   String DO_NOT_STEAL_MY_CODE__Thank_you;
   static String absolPath;
@@ -93,7 +93,6 @@ public class Main extends JavaPlugin
     String line = null;
     while ((line = configReader.readLine()) != null)
     {
-      //String line = null;
       if (!line.startsWith("#")) {
         if (line.startsWith("URL=")) {
           String value = line.replaceFirst("URL=", "");

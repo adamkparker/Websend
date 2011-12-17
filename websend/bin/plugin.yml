@@ -8,3 +8,7 @@ commands:
       description: Sends variables to server.
       usage: |
               /<command> <arguments>
+   ws:
+      description: Sends variables to server.
+      usage: |
+              /<command> <arguments>

@@ -36,7 +36,7 @@ class PHPSktSrvrThread extends Thread
     try {
       ServerSocket server = new ServerSocket(Integer.parseInt(this.conPort));
       if (Main.debugWebsend) System.out.println("Websend: ServerSocket object created.");
-      label438: while (this.active) {
+      label383: while (this.active) {
         Socket skt = server.accept();
         if (Main.debugWebsend) System.out.println("Websend: Accepted Socket.");
         BufferedReader reader = new BufferedReader(new InputStreamReader(skt.getInputStream()));
@@ -47,6 +47,7 @@ class PHPSktSrvrThread extends Thread
         String line;
         while ((line = reader.readLine()) != null)
         {
+          //String line;
           boolean containsPassword = true;
           int lineNumber = 0;
           String[] splittedLine = (String[])null;
@@ -67,23 +68,23 @@ class PHPSktSrvrThread extends Thread
               if ((splittedLine.length < 1) && (lineNumber == 0)) {
                 System.out.println("WARNING: During a web-triggered connection attempt");
                 System.out.println("no password was found on the first line, any command");
-                System.out.println("before the authentification will be ignored."); break label438;
+                System.out.println("before the authentification will be ignored."); break;
               }
               if (splittedLine[0].trim().equalsIgnoreCase(interpretator.hash(this.pass).trim())) {
-                checkLinePassed = true; break label438;
+                checkLinePassed = true; break;
               }
               if (splittedLine[0].contains(";")) {
                 System.out.println("WARNING: During a web-triggered connection attempt");
                 System.out.println("no password was found on the first line, any command");
-                System.out.println("before the authentification will be ignored."); break label438;
+                System.out.println("before the authentification will be ignored."); break;
               }
-              if (lineNumber != 0) break label438; System.out.println("WARNING: During a web-triggered connection attempt");
+              if (lineNumber != 0) break; System.out.println("WARNING: During a web-triggered connection attempt");
               System.out.println("no password was found on the first line, any command");
               System.out.println("before the authentification will be ignored.");
             }
             catch (NoSuchAlgorithmException ex) {
               Logger.getLogger(PHPSktSrvrThread.class.getName()).log(Level.SEVERE, null, ex);
-              if (!Main.debugWebsend) break label438;  } System.out.println("Websend: Impossible error: Wrong hash algoritm");
+              if (Main.debugWebsend) break label383;  } break; //System.out.println("Websend: Impossible error: Wrong hash algoritm");
           }
           else
           {

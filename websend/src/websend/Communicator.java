@@ -66,6 +66,7 @@ public class Communicator
       String line;
       while ((line = in.readLine()) != null)
       {
+        //String line;
         String line1 = null;
         interpretator.Interpretate(line1, player, server);
       }
@@ -73,6 +74,7 @@ public class Communicator
     String line;
     while ((line = in.readLine()) != null)
     {
+      //String line;
       String line1 = null;
       interpretator.NoPlayerInterpretate(line1, server);
     }
